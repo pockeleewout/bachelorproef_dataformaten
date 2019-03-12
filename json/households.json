@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "stride-households",
+    "type": "object",
+    "properties": {
+        "households_name": { "type": "string" },
+        "households_list": { 
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                    "type": "number"
+                }
+            }
+        }
+    },
+    "required": ["households_name", "households_list"]
+}
