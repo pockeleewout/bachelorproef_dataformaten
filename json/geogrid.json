@@ -12,24 +12,30 @@
                         "type": "integer"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                     },
                     "province": {
                         "type": "integer"
                     },
                     "population": {
-                        "type": "integer"
+                        "type": "integer",
+                        "minimum": 1
                     },
                     "coordinate": {
                         "type": "object",
                         "properties": {
                             "longitude": {
-                                "type": "integer"
+                                "type": "number"
                             },
                             "latitude": {
-                                "type": "integer"
+                                "type": "number"
                             }
-                        }
+                        },
+                        "required": [
+                            "longitude",
+                            "latitude"
+                        ]
                     },
                     "contactCenters": {
                         "type": "array",
