@@ -1,0 +1,116 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "stride-geogrid",
+    "type": "object",
+    "properties": {
+        "locations": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "province": {
+                        "type": "integer"
+                    },
+                    "population": {
+                        "type": "integer"
+                    },
+                    "coordinate": {
+                        "type": "object",
+                        "properties": {
+                            "longitude": {
+                                "type": "integer"
+                            },
+                            "latitude": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "contactCenters": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "K12School",
+                                        "PrimaryCommunity",
+                                        "SecondaryCommunity",
+                                        "College",
+                                        "Household",
+                                        "Workplace"
+                                    ]
+                                },
+                                "pools": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "people": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "people"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "type",
+                                "pools"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "province",
+                    "population",
+                    "coordinate",
+                    "contactCenters"
+                ]
+            }
+        },
+        "people": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "age": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "id",
+                    "age"
+                ]
+            }
+        }
+    },
+    "required": [
+        "locations",
+        "people"
+    ]
+}
